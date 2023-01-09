@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +36,36 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+.element {
+  margin-block: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
 }
+
+.element img {
+  height: 200px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin: 2px auto;
+  padding: 20px;
+}
+
+.element-div {
+  height: 200px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+
+
