@@ -17,37 +17,58 @@ function App() {
     },
   };
 
-  useEffect(() => {
-      fetchMe()
-      document.title = `${endPoint}`
-    
-  }, [endPoint]);
 
-  const fetchMe = () => {
-    //   fetch(
-    //     `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${endPoint}`,
-    //     options
-    //  )
-    // fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=apples%2Cflour%2Csugar&number=5&ignorePantry=true&ranking=1', options)
-      fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${endPoint}`, options)
-       .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        setContainer(data)
-        // if(data.results.length > 0){
-        //   setContainer(data.results);
-        // }else {
-        //   setMessage("Content not found")
-        // }
-        console.log(data)
-      })
+  useEffect(() => {
+    const API_URL = `https://api.spoonacular.com/food/site/search?query=`
+    const apiKey = '59ac2c8a04524b9291166a2d9ff62251'
+
+  if (endPoint) {
+    const fetchData = async () => {
+      const response = await fetch(API_URL + endPoint + '&apiKey=' + apiKey)
+      const resData = await response.json()
+      if (resData.Recipes.length > 0) {
+        setContainer(resData.Recipes)
+        console.log(container)
+      } else {
+        window.alert('Not Found')
+      }
+    }
+    fetchData()
+  }
+}, [endPoint])
+
+
+  // useEffect(() => {
+  //     fetchMe()
+  //     document.title = `${endPoint}`
+    
+  // }, [endPoint]);
+
+  // const fetchMe = () => {
+  //      fetch(
+  //        `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=${endPoint}`,
+  //        options
+  //   )
+  //   // fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=apples%2Cflour%2Csugar&number=5&ignorePantry=true&ranking=1', options)
+  //   //  fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=${endPoint}`, options)
+  //      .then(response => {
+  //       return response.json()
+  //     })
+  //     .then(data => {
+  //       setContainer(data.results)
+  //       // if(data.results.length > 0){
+  //       //   setContainer(data.results);
+  //       // }else {
+  //       //   setMessage("Content not found")
+  //       // }
+  //       console.log(data)
+  //     })
       
-      .catch(err => {
-        console.error(err)
-      })
+  //     .catch(err => {
+  //       console.error(err)
+  //     })
       
-  };
+  // };
 
   // const onChangeHandler = (e) => {
   //   setEndPoint(e.target.value);

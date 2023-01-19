@@ -8,15 +8,16 @@ const Galleryitem = (props) => {
       <div className='element-img'>
         <img src={props.item.image}
         alt="recipeImage"/>
+        <h1>{props.item.title}</h1>
       </div>
     )
   }
+
 
   const simpleView = () => {
     return (
     <div className='element-div'>
       <h1>{props.item.title}</h1>
-      <h2>{props.item.usedIngredients.extendedName}</h2>
       </div>
     )
   }
