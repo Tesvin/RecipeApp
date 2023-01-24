@@ -10,8 +10,8 @@ const [finalEndPoint, setFinalEndPoint] = useState("")
         placeholder='Search Here' 
         className='border-b-4 border border-gray-900'
         onChange={(e) => setFinalEndPoint(e.target.value)} />
-        <button className='pl-2 cursor-pointer' type="submit">SUBMIT</button>
-        <button className='pl-4 cursor-pointer' onClick={props.clearData}>CLEAR</button>
+        <button className='pl-2 cursor-pointer submit' type="submit">SUBMIT</button>
+        <button className='pl-4 cursor-pointer clear' onClick={props.clearData}>CLEAR</button>
       </form>
   )
 }
