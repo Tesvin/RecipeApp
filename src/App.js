@@ -24,7 +24,7 @@ function App() {
           API_URL + endPoint + "&apiKey=" + process.env.REACT_APP_API_KEY
         );
         const resData = await response.json();
-        if (resData.Recipes.length > 0) {
+        if (resData.Recipes?.length > 0) {
           setContainer(resData.Recipes);
           document.title = `${endPoint} recipe`;
           console.log(resData.Recipes);
